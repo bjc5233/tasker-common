@@ -1,0 +1,64 @@
+<TaskerData sr="" dvi="1" tv="4.9u3m">
+	<Task sr="task50">
+		<cdate>1505120134014</cdate>
+		<edate>1506925594968</edate>
+		<id>50</id>
+		<nme>comm-img-width-height</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>300</code>
+			<label>获取图片宽高</label>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>547</code>
+			<label>图片源路径</label>
+			<Str sr="arg0" ve="3">%img_src_path</Str>
+			<Str sr="arg1" ve="3">%par1</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">comm-img-base64</Str>
+			<Int sr="arg1">
+				<var>%priority</var>
+			</Int>
+			<Str sr="arg2" ve="3">%img_src_path;JPEG</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3">%base64</Str>
+			<Int sr="arg5" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>547</code>
+			<label>配置根路径</label>
+			<Str sr="arg0" ve="3">%root_path</Str>
+			<Str sr="arg1" ve="3">/storage/sdcard1/software_me/tasker/commImgWidthHeight</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>410</code>
+			<Str sr="arg0" ve="3">%root_path/js.js</Str>
+			<Str sr="arg1" ve="3">var img = new Image();
+img.src = "data:image/jpeg;base64,%base64";
+var width = img.width;
+var height = img.height;</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="1"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>131</code>
+			<Str sr="arg0" ve="3">%root_path/js.js</Str>
+			<Str sr="arg1" ve="3"/>
+			<Int sr="arg2" val="1"/>
+			<Int sr="arg3" val="45"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>126</code>
+			<Str sr="arg0" ve="3">%width;%height</Str>
+			<Int sr="arg1" val="1"/>
+		</Action>
+	</Task>
+</TaskerData>

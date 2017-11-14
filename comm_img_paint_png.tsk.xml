@@ -1,9 +1,9 @@
 <TaskerData sr="" dvi="1" tv="4.9u3m">
 	<Task sr="task44">
 		<cdate>1505120134014</cdate>
-		<edate>1506338502111</edate>
+		<edate>1506837337220</edate>
 		<id>44</id>
-		<nme>comm-image-paint-png</nme>
+		<nme>comm-img-paint-png</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>547</code>
@@ -50,14 +50,14 @@
 			<code>547</code>
 			<label>配置根路径</label>
 			<Str sr="arg0" ve="3">%root_path</Str>
-			<Str sr="arg1" ve="3">/storage/sdcard1/software_me/tasker/commImagePaintPng</Str>
+			<Str sr="arg1" ve="3">/storage/sdcard1/software_me/tasker/commImgPaintPng</Str>
 			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="0"/>
 		</Action>
 		<Action sr="act6" ve="7">
 			<code>130</code>
-			<Str sr="arg0" ve="3">comm-image-base64</Str>
+			<Str sr="arg0" ve="3">comm-img-base64</Str>
 			<Int sr="arg1">
 				<var>%priority</var>
 			</Int>
@@ -119,7 +119,7 @@ base64_new = base64_new.substring(22);</Str>
 		</Action>
 		<Action sr="act9" ve="7">
 			<code>130</code>
-			<Str sr="arg0" ve="3">comm-base64-image</Str>
+			<Str sr="arg0" ve="3">comm-base64-img</Str>
 			<Int sr="arg1">
 				<var>%priority</var>
 			</Int>

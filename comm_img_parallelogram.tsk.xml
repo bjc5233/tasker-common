@@ -1,0 +1,180 @@
+<TaskerData sr="" dvi="1" tv="4.9u3m">
+	<Task sr="task68">
+		<cdate>1505120134014</cdate>
+		<edate>1510386428031</edate>
+		<id>68</id>
+		<nme>comm-img-parallelogram</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>547</code>
+			<on>false</on>
+			<Str sr="arg0" ve="3">%params</Str>
+			<Str sr="arg1" ve="3">0.3;0.02;30;50;storage/sdcard1/1.jpg;/storage/sdcard1/2.jpg</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%params</Str>
+			<Str sr="arg1" ve="3">%par1</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act10" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">comm-img-base64</Str>
+			<Int sr="arg1">
+				<var>%priority</var>
+			</Int>
+			<Str sr="arg2" ve="3">%img_src_path;JPEG</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3">%base64</Str>
+			<Int sr="arg5" val="0"/>
+		</Action>
+		<Action sr="act11" ve="7">
+			<code>410</code>
+			<Str sr="arg0" ve="3">%root_path/js.js</Str>
+			<Str sr="arg1" ve="3">//========================= 配置 =========================
+var paraHeightPercent = %para_height_percent; //平行四边形高度百分比
+var paraPosYPercent = %para_pos_y_percent; //平行四边形pos1位置Y值百分比
+var paraAngle = %para_angle; //平行四边形角度值
+var blurDegree = %blur_degree; //副图模糊程度[1-100]
+
+var img = new Image();
+img.src = "data:image/jpeg;base64,%base64";
+var imgWidth = img.width;
+var imgHeight = img.height;
+
+//========================= 裁剪平行四边形 =========================
+//calc four pos
+var pos1 = {x:imgWidth, y: imgHeight*paraPosYPercent};
+var pos2 = {x:0, y: Math.tan(paraAngle * Math.PI / 180)  * imgWidth + pos1.y};
+var pos3 = {x:0, y: pos2.y + imgHeight*paraHeightPercent};
+var pos4 = {x:imgWidth, y: pos1.y + imgHeight*paraHeightPercent};
+
+
+var canvasPara = document.createElement("canvas");
+canvasPara.width = imgWidth;
+canvasPara.height = imgHeight
+var contextPara = canvasPara.getContext("2d");
+contextPara.clearRect(0, 0, imgWidth, imgHeight);
+contextPara.save();
+contextPara.beginPath();
+contextPara.moveTo(pos1.x, pos1.y);
+contextPara.lineTo(pos2.x, pos2.y);
+contextPara.lineTo(pos3.x, pos3.y);
+contextPara.lineTo(pos4.x, pos4.y);
+contextPara.closePath();
+contextPara.clip();
+contextPara.drawImage(img, 0, 0);
+contextPara.restore();
+var base64Para = canvasPara.toDataURL('image/png', 1);
+
+
+//========================= attach =========================
+var canvas = document.createElement("canvas");
+canvas.width = imgWidth;
+canvas.height = imgHeight;
+//img blur
+StackBlur.image(img, canvas, blurDegree, true);
+
+var imgPara = new Image();
+imgPara.src = base64Para;
+var context = canvas.getContext("2d");
+context.drawImage(imgPara, 0, 0);
+var base64_new = canvas.toDataURL('image/jpeg', 1);
+base64_new = base64_new.substring(23);</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="1"/>
+		</Action>
+		<Action sr="act12" ve="7">
+			<code>131</code>
+			<Str sr="arg0" ve="3">%root_path/js.js</Str>
+			<Str sr="arg1" ve="3">%root_path/stackblur.min.js</Str>
+			<Int sr="arg2" val="1"/>
+			<Int sr="arg3" val="45"/>
+		</Action>
+		<Action sr="act13" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">comm-base64-img</Str>
+			<Int sr="arg1">
+				<var>%priority</var>
+			</Int>
+			<Str sr="arg2" ve="3">%img_save_path;JPEG</Str>
+			<Str sr="arg3" ve="3">%base64_new</Str>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="0"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>590</code>
+			<Str sr="arg0" ve="3">%params</Str>
+			<Str sr="arg1" ve="3">;</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>547</code>
+			<label>平行四边形高度百分比</label>
+			<Str sr="arg0" ve="3">%para_height_percent</Str>
+			<Str sr="arg1" ve="3">%params1</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>547</code>
+			<label>平行四边形pos1位置Y值百分比</label>
+			<Str sr="arg0" ve="3">%para_pos_y_percent</Str>
+			<Str sr="arg1" ve="3">%params2</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>547</code>
+			<label>平行四边形角度值</label>
+			<Str sr="arg0" ve="3">%para_angle</Str>
+			<Str sr="arg1" ve="3">%params3</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>547</code>
+			<label>副图模糊程度[1-100]</label>
+			<Str sr="arg0" ve="3">%blur_degree</Str>
+			<Str sr="arg1" ve="3">%params4</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>547</code>
+			<label>图片源路径</label>
+			<Str sr="arg0" ve="3">%img_src_path</Str>
+			<Str sr="arg1" ve="3">%params5</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>547</code>
+			<label>图片保存路径</label>
+			<Str sr="arg0" ve="3">%img_save_path</Str>
+			<Str sr="arg1" ve="3">%params6</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>547</code>
+			<label>配置根路径</label>
+			<Str sr="arg0" ve="3">%root_path</Str>
+			<Str sr="arg1" ve="3">/storage/sdcard1/software_me/tasker/commImgParallelogram</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+	</Task>
+</TaskerData>

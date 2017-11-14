@@ -1,9 +1,9 @@
 <TaskerData sr="" dvi="1" tv="4.9u3m">
 	<Task sr="task40">
 		<cdate>1505135740162</cdate>
-		<edate>1506338407502</edate>
+		<edate>1510479077755</edate>
 		<id>40</id>
-		<nme>comm-base64-image</nme>
+		<nme>comm-base64-img</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>300</code>
@@ -39,7 +39,7 @@
 			<Str sr="arg2" ve="3">compress
 {boolean} (CompressFormat, int, OutputStream)</Str>
 			<Str sr="arg3" ve="3">format</Str>
-			<Str sr="arg4" ve="3">60</Str>
+			<Str sr="arg4" ve="3">98</Str>
 			<Str sr="arg5" ve="3">fos</Str>
 			<Str sr="arg6" ve="3"/>
 			<Str sr="arg7" ve="3"/>

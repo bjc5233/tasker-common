@@ -1,0 +1,40 @@
+<TaskerData sr="" dvi="1" tv="4.9u3m">
+	<Task sr="task63">
+		<cdate>1506411054259</cdate>
+		<edate>1506837095124</edate>
+		<id>63</id>
+		<nme>comm-img-path-vaild</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>547</code>
+			<label>配置图片路径</label>
+			<Str sr="arg0" ve="3">%img_path</Str>
+			<Str sr="arg1" ve="3">%par1</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>129</code>
+			<Str sr="arg0" ve="3">var filePath = img_path;
+var strFilter = ".jpeg|.gif|.jpg|.png|.bmp|.pic|";
+var is_img_flag = 0;
+if(filePath.indexOf(".") != -1) {
+	var p = filePath.lastIndexOf(".");
+	var postfix = filePath.substring(p, filePath.length) + '|';        
+	postfix = postfix.toLowerCase();
+	if(strFilter.indexOf(postfix) != -1) {
+		is_img_flag = 1;
+	}
+}</Str>
+			<Str sr="arg1" ve="3"/>
+			<Int sr="arg2" val="1"/>
+			<Int sr="arg3" val="45"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>126</code>
+			<Str sr="arg0" ve="3">%is_img_flag</Str>
+			<Int sr="arg1" val="1"/>
+		</Action>
+	</Task>
+</TaskerData>
